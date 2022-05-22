@@ -66,10 +66,6 @@ export default function Register(props) {
                 </div>
         
               </div>
-              {/* <div className="col-sm-6 px-0 d-none d-sm-block">
-                <img src="/stranger-things/public/Strangers-things-logo.png"
-                  alt="" className="w-100 vh-100" style={{objectFit: "cover", objectPosition: "left"}}/>
-              </div> */}
             </div>
           </div>
         </section>

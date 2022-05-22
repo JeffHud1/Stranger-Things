@@ -1,6 +1,5 @@
 import React from 'react'
 import {default as Messenger} from "./Messenger";
-import {default as PostPatcher} from "./PostPatcher";
 import {
     deletePost
   } from "../api";
@@ -38,12 +37,13 @@ export default function Posts(props) {
                             }
 
                             <div className='d-flex justify-content-between'>
-                                {post.isAuthor ?  
+                                {/* {post.isAuthor ?  //was working on adding update component but ran out of time so removed the file and reverted to a placeholder
                                 <PostPatcher post={post}/>
-                                : null}
-                                {/* {post.isAuthor ? <button className='btn btn-warning' onClick={(e)=>{
+                                : null} */}
+                                {post.isAuthor ? <button className='btn btn-warning' onClick={(e)=>{
                                     e.preventDefault();
-                                }}>Update Post</button> : null} */}
+                                    //this is a placeholder for styling purposes
+                                }}>Update Post</button> : null}
                                 <br></br>
                                 {post.isAuthor ? <button className='btn btn-danger'onClick={(e)=>{
                                     e.preventDefault();
@@ -65,6 +65,7 @@ export default function Posts(props) {
                             <h6 className='card-subtitle mb-2 text-muted'>{post.price}</h6>
                             <p className='card-text'>{post.description}</p>
                             <p className='card-text'>{post.location}</p>
+                            
                         </div> 
                     </div>
         })}

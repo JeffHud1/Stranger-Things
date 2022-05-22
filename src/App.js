@@ -23,9 +23,11 @@ function App() {
   const [userInfo, setUserInfo] = useState({});
 
   useEffect( () => {
-    fetchPosts(setPosts, token);
-    fetchCurrentUserData(setUserInfo, token);
-    console.log("effect fired");
+    const slowDown = async () =>{
+      await fetchPosts(setPosts, token);
+      await fetchCurrentUserData(setUserInfo, token);
+    }
+    slowDown();
 }, [token, action]);
   
   return (

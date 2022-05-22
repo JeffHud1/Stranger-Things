@@ -6,8 +6,7 @@ export async function fetchPosts (setPosts, token) {
         headers: makeHeaders(token)
     }).then(response=>response.json())
     .then(result=>{
-        // console.log(result)
-        setPosts(result.data.posts)
+        setPosts(result.data.posts);
     })
     .catch(console.error)
 }
@@ -18,7 +17,6 @@ export async function TokenRegister (inputUsername, inputPassword, setToken) {
   headers : {
     "Content-Type" : "application/json"
   },
-//   headers: makeHeaders(localStorageToken),
   body: JSON.stringify({
     user: {
       username: inputUsername,
@@ -27,10 +25,9 @@ export async function TokenRegister (inputUsername, inputPassword, setToken) {
   })
 }).then(response => response.json())
   .then(result => {
-      console.log(result)
     setToken(result.data.token);
     localStorage.setItem("jwt", result.data.token);
-    alert(result.data.message)
+    alert(result.data.message);
   })
   .catch(console.error);
 }
@@ -51,7 +48,7 @@ export async function TokenLogin (inputUsername, inputPassword, setToken) {
   .then(result => {
     setToken(result.data.token);
     localStorage.setItem("jwt", result.data.token);
-    alert(result.data.message)
+    alert(result.data.message);
   })
   .catch(console.error);
 }
@@ -78,9 +75,9 @@ export async function addNewPost (postObject, token) {
         })
     }).then(response => response.json())
     .then(result =>{
-        console.log(result);
+        return result;
     })
-    .catch(console.error)
+    .catch(console.error);
 }
 
 export async function fetchCurrentUserData (setUserInfo, token) {
@@ -90,9 +87,8 @@ export async function fetchCurrentUserData (setUserInfo, token) {
     }).then(response=>response.json())
     .then(result=>{
         setUserInfo(result.data);
-        console.log(result.data)
     })
-    .catch(console.error)
+    .catch(console.error);
 }
 
 export async function deletePost (postId, token) {
@@ -101,12 +97,12 @@ export async function deletePost (postId, token) {
         headers: makeHeaders(token)
     }).then(response =>response.json())
     .then(result => {
-        console.log(result);
+        return result;
     })
-    .catch(console.error)
+    .catch(console.error);
 }
 
-export async function messagePost (postId, message, token, action, setAction) {
+export async function messagePost (postId, message, token) {
     fetch(`${Base_URL}/posts/${postId}/messages`, {
         method: "POST",
         headers: makeHeaders(token),
@@ -117,11 +113,9 @@ export async function messagePost (postId, message, token, action, setAction) {
         })
     }).then(response =>response.json())
     .then(result =>{
-        console.log(result);
-        console.log(action)
-        setAction(!action)
+        return result;
     })
-    .catch(console.error)
+    .catch(console.error);
 }
 
 export async function updatePost (postId, updateTitle, updateDescription, updatePrice, newLocation, updateDeliver, token) {
@@ -139,7 +133,7 @@ export async function updatePost (postId, updateTitle, updateDescription, update
         })
     }).then(response =>{response.json()})
     .then(result=>{
-        console.log(result)
+        return result;
     })
-    .catch(console.error)
+    .catch(console.error);
 }

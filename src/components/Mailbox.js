@@ -44,7 +44,7 @@ export default function Mailbox(props) {
                             <h5 className='card-title'>Regarding: {message.post.title}</h5>
                             <h6 className='card-subtitle mb-2 text-muted'>From: {message.fromUser.username}</h6>
                             <p className='card-text'>{message.content}</p>
-                            <Messenger //this component is sending multiple messages here for some reason but not in the main posts component
+                            <Messenger
                             token={token} 
                             setAction={setAction} 
                             action={action} 
